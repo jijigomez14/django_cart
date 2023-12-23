@@ -1,0 +1,99 @@
+{% load static %}
+{% block content %}
+<div class="hero_area">
+    <!-- header section starts -->
+    <header class="header_section">
+       <div class="container">
+          <nav class="navbar navbar-expand-lg custom_nav-container ">
+             <a class="navbar-brand" href="index.html"><img width="250" src="{% static 'images/logo.png' %}" alt="#" /></a>
+             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+             <span class=""> </span>
+             </button>
+             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                   <li class="nav-item active">
+                      <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                   </li>
+                  <li class="nav-item dropdown">
+                      <!-- <a class="nav-link dropdown-toggle" href="login.html" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">login</span></a> -->
+                      <a class="nav-link dropdown-toggle" href="login/">login</a>
+                      <ul class="dropdown-menu">
+                         <li><a href="about/">About</a></li>
+                         <!-- <li><a href="sign">login</a></li> -->
+                      </ul>
+                   </li>
+                   <li class="nav-item">
+                      <a class="nav-link products-link" href="products/">Products</a>
+                   </li>
+                   <li class="nav-item">
+                      <a class="nav-link" href="blog/">Blog</a>
+                   </li>
+                   <li class="nav-item">
+                      <a class="nav-link" href="contact">Contact</a>
+                   </li>
+                   <li class="nav-item">
+                      <a class="nav-link" href="#">
+                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                            <!-- SVG content -->
+                         </svg>
+                      </a>
+                   </li>
+                   <form class="form-inline">
+                      <button class="btn my-2 my-sm-0 nav_search-btn" type="submit">
+                      <i class="fa fa-search" aria-hidden="true"></i>
+                      </button>
+                   </form>
+                </ul>
+             </div>
+          </nav>
+       </div>
+    </header>
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">Login Required</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- Your login form goes here. You can add an actual form or redirect users to your login page. -->
+            Please log in to access products.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Include Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Include jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Script for handling login logic -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const productsLink = document.querySelector('.products-link');
+        
+        productsLink.addEventListener('click', function(event) {
+          event.preventDefault();  // Prevent default navigation behavior
+
+          // Check if the user is logged in (you can replace this with actual logic)
+          const userIsLoggedIn = false;  // For demonstration purposes; implement actual logic
+
+          if (!userIsLoggedIn) {
+            // Display the login modal
+            $('#loginModal').modal('show');
+          } else {
+            // Redirect to the products page if the user is logged in
+            window.location.href = "products/";
+          }
+        });
+      });
+    </script>
+
+
+    {% endblock %}
